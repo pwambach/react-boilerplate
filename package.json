@@ -7,8 +7,8 @@
     "build": "browserify -d -e src/index.js -t babelify -o dist/index.js && npm run styles",
     "build:production": "NODE_ENV=production browserify -e src/index.js -t babelify -o dist/index.js && npm run uglify",
     "uglify": "uglifyjs dist/index.js -o dist/index.min.js --mangle -c",
-    "watch": "npm run build && light-server -s . -p 8080 -w 'src/**/*.js*  # npm run build'",
-    "styles": "postcss --use precss --use autoprefixer -o dist/styles/pmain.css src/styles/main.css",
+    "watch": "npm run build && light-server -s . -p 8080 -w 'src/**/*.js*  # npm run build' -w 'src/styles/**/*.css # npm run styles'",
+    "styles": "postcss --use precss --use autoprefixer -o dist/styles/main.css src/styles/main.css",
     "test": "eslint src"
   },
   "author": "Philipp Wambach",
